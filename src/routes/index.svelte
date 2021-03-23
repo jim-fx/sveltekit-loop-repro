@@ -4,7 +4,7 @@
 	 * @returns {import('@sveltejs/kit').Loaded}
 	 */
 	export async function load({ fetch }) {
-		const res = await fetch("api/test");
+		const res = await fetch("test");
 
 		if (res.ok) {
 			return {
@@ -16,7 +16,7 @@
 
 		return {
 			status: res.status,
-			error: new Error(`Could not load /api/test`),
+			error: new Error(`Could not load test`),
 		};
 	}
 </script>
@@ -25,4 +25,6 @@
 	export let test;
 </script>
 
-{JSON.stringify(test)}
+<pre>
+	{JSON.stringify(test, null, 2)}
+</pre>
